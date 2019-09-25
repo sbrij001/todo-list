@@ -24,10 +24,14 @@ class Todo extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log('new task',this.state.task)
+    this.props.updatedTodos(this.props.id, this.state.task)
+    this.setState({
+      isEditing: false
+    })
 
   }
   render(){
-    console.log('todo',this.props)
     let result;
     if (this.state.isEditing) {
       result = (

@@ -19,9 +19,16 @@ class TodoList extends React.Component{
     })
   }
 
-  edit = (todo) => {
+  edit = (id, newTask) => {
+    const updatedTodos =  this.state.todos.map(todo => {
+      if(todo.id === id){
+        return {...todo, task: newTask}
+      }else {
+        return todo
+      }
+    })
     this.setState({
-      todos: []
+      todos: updatedTodos
     })
   }
 
@@ -33,6 +40,7 @@ class TodoList extends React.Component{
             name={todo.name}
             id={todo.id}
             deleteItem={this.delete}
+            updatedTodos={this.edit}
             />
       )
     })
