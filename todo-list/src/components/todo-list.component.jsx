@@ -4,7 +4,7 @@ import Todo from './todo.component';
 
 class TodoList extends React.Component{
   state={
-    todos: [{name: 'walk dog'}]
+    todos: []
   }
 
   create = (todo) => {
@@ -15,16 +15,15 @@ class TodoList extends React.Component{
 
   delete = (id) => {
     this.setState({
-      todos: this.state.filter( filter => this.state.todos.id !== id )
+      todos: this.state.todos.filter( todo => todo.id !== id )
     })
-
   }
 
   render(){
     const newTodo = this.state.todos.map(todo => {
       return (
           <Todo
-            key={1}
+            key={todo.id}
             name={todo.name}
             id={todo.id}
             deleteItem={this.delete}

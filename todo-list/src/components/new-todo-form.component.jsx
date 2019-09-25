@@ -22,7 +22,6 @@ class NewTodoForm extends React.Component{
   }
 
   render(){
-    console.log(this.state);
     return(
       <div>
         <h4>New Todo</h4>
