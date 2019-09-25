@@ -1,5 +1,6 @@
 import React from 'react';
-
+import NewTodoForm from './new-todo-form.component';
+import Todo from './todo.component';
 
 class TodoList extends React.Component{
   state={
@@ -9,7 +10,8 @@ class TodoList extends React.Component{
   render(){
     return(
       <div>
-        <h1>TOdo </h1>
+        <NewTodoForm/>
+        <Todo/>
       </div>
     )
   }
