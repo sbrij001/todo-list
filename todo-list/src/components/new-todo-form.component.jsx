@@ -1,8 +1,9 @@
 import React from 'react';
+import uuid from 'uuid/v4';
 
 class NewTodoForm extends React.Component{
   state={
-    name: "hi"
+    name: ""
   }
 
   onChange = (event) => {
@@ -13,21 +14,23 @@ class NewTodoForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createTodo(this.state)
+    const newTodo = {...this.state, id: uuid()}
+    this.props.createTodo(newTodo)
     this.setState({
       name: ""
     })
   }
 
   render(){
+    console.log(this.state);
     return(
       <div>
         <h4>New Todo</h4>
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
-            name='todo'
-            value={this.state.todo}
+            name='name'
+            value={this.state.name}
             placeholder='New Todo'
             onChange={this.onChange}
           />
