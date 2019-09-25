@@ -19,6 +19,12 @@ class TodoList extends React.Component{
     })
   }
 
+  edit = (todo) => {
+    this.setState({
+      todos: []
+    })
+  }
+
   render(){
     const newTodo = this.state.todos.map(todo => {
       return (
